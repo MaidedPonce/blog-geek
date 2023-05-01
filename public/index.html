@@ -117,7 +117,10 @@
                         </div>
                         <div class="div-btnInicioSesion">
                             <a id="btnInicioEmail" class="btn waves-effect waves-light">Iniciar Sesión<i class="material-icons right">send</i></a>
-                        </div>           
+                        </div>
+                        <div>
+                            <div>¿Olvidaste tu contraseña? <a id="passwordForgotten">Recuperala</a></div>
+                        </div>         
                         <div class="lbl-ingresar-redes">
                             <span>INGRESA CON:</span>
                         </div>
@@ -127,6 +130,7 @@
                             <a id="authTwitter" class="logo-twitter" href="#"></a>
                         </div> 
                     </div>
+                    <div id="registro-formulario2"></div>
                     <div class="col s12 m12 div-btnRegistrarse">
                         <a id="btnRegistrarse" class="btn waves-effect waves-light">Crear una cuenta<i class="material-icons left">account_box</i></a>                        
                     </div>
@@ -213,6 +217,12 @@
         </div>
     </div>
 
+    <!-- Recuperar contraseñ -->
+    <div id="signInForm">
+        <input id="passwordRecoveryInput" type="email" />
+        <button id="passwordRecoveryButton">Recuperar contraseña</button>
+    </div>
+
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -220,7 +230,10 @@
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 
-
+<!-- Script general de firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<!-- Script de autenticacion -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
 <!--build:js js/main.min.js -->
 <script type="text/javascript" src="js/config/ConfigFirebase.js"></script>
