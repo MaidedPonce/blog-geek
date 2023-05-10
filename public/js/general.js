@@ -16,7 +16,8 @@ $(() => {
   // TODO: Recibir las notificaciones cuando el usuario esta background
 
   // TODO: Listening real time
-
+  const post = new Post()
+  post.consultarTodosPost()
   // TODO: Firebase observador del cambio de estado
   // Funcion para manejar el estado
   $('#passwordForgotten').click(() => {
@@ -70,6 +71,8 @@ $(() => {
     .then(() => {
       $('#avatar').attr('src', 'imagenes/usuario.png')
       Materialize.toast(`SignOut correcto`, 4000)
+      const post = new Post()
+      post.consultarTodosPost()
     })
     .catch(error => {
       Materialize.toast(`Error al realizar signout`, 4000)
@@ -82,6 +85,15 @@ $(() => {
 
   $('#btnMisPost').click(() => {
     //$('#tituloPost').text('Mis Posts')
-    //Materialize.toast(`Debes estar autenticado para ver tus posts`, 4000)    
+    //Materialize.toast(`Debes estar autenticado para ver tus posts`, 4000) 
+    const user = firebase.auth().currentUser
+
+    if (user) {
+      const post = new Post()
+      post.consultarPostxUsuario(user)
+      $('#tituloPost').text('Mis Posts')
+    } else {
+      Materialize.toast(`Debes estar autenticado para ver tus posts`, 4000) 
+    }
   })
 })
