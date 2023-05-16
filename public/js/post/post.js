@@ -1,5 +1,6 @@
 class Post {
   constructor () {
+    // TODO inicializar firestore y settings
     this.db = firebase.firestore()
     const settings = { timestampsInSnapshots: true }
     this.db.settings(settings)
@@ -7,7 +8,7 @@ class Post {
 
   crearPost (uid, emailUser, titulo, descripcion, imagenLink, videoLink) {
     return this.db
-      .collection('posts')
+      .collection('post')
       .add({
         uid: uid,
         autor: emailUser,
@@ -15,21 +16,19 @@ class Post {
         descripcion: descripcion,
         imagenLink: imagenLink,
         videoLink: videoLink,
-        fecha: firebase.firestore.FieldValue.serverTimestamp()
+        fecha: firebase.firestore.FielValue.serverTimestamp()
       })
       .then(refDoc => {
-        console.log(`Id del post => ${refDoc.id}`)
+        console.log(refDoc?.id)
       })
-      .catch(error => {
-        console.error(`Error creando el post => ${error}`)
-      })
+      .catch(error => error)
   }
 
   consultarTodosPost () {
     this.db
-      .collection('posts')
+      .collection('post')
       .orderBy('fecha', 'asc')
-      .orderBy('titulo', 'asc')
+      .orderBy('titulo', asc)
       .onSnapshot(querySnapshot => {
         $('#posts').empty()
         if (querySnapshot.empty) {
@@ -52,10 +51,9 @@ class Post {
 
   consultarPostxUsuario (emailUser) {
     this.db
-      .collection('posts')
+      .collection('post')
       .orderBy('fecha', 'asc')
-      .orderBy('titulo', 'asc')
-      .where('autor', '==', emailUser)
+      .where('autor(a)', '==', emailUser)
       .onSnapshot(querySnapshot => {
         $('#posts').empty()
         if (querySnapshot.empty) {
@@ -83,11 +81,12 @@ class Post {
     task.on(
       'state_changed',
       snapshot => {
-        const porcentaje = snapshot.bytesTransferred / snapshot.totalBytes * 100
+        const porcentaje =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         $('.determinate').attr('style', `width: ${porcentaje}%`)
       },
       err => {
-        Materialize.toast(`Error subiendo archivo = > ${err.message}`, 4000)
+        Materialize.toast(`Error subiendo archivo => ${err.message}`, 4000)
       },
       () => {
         task.snapshot.ref
@@ -97,7 +96,10 @@ class Post {
             sessionStorage.setItem('imgNewPost', url)
           })
           .catch(err => {
-            Materialize.toast(`Error obteniendo downloadURL = > ${err}`, 4000)
+            Materialize.toast(
+              `Error obteniendo downloadURL => ${err.message}`,
+              4000
+            )
           })
       }
     )

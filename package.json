@@ -6,19 +6,11 @@
   "scripts": {
     "test": "no test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jggomez/blogvideos-ucc.git"
-  },
   "keywords": [
     "blog"
   ],
-  "author": "Juan Guillermo Gómez",
+  "author": "MaidedPonce",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jggomez/blogvideos-ucc/issues"
-  },
-  "homepage": "https://github.com/jggomez/blogvideos-ucc#readme",
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "del": "^2.2.2",
