@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "blogeekplatzi-4836b"
-  }
+    "default": "blogeekplatzi-ea54b",
+    "develop": "blogeekplatzi-ea54b",
+    "blogeek": "blogeekplatzi-ea54b"
+  },
+  "targets": {},
+  "etags": {}
 }

@@ -4,7 +4,6 @@ $(() => {
 
   firebase.initializeApp(varConfig)
 
-<<<<<<< HEAD
   // Se registra el service worker
   navigator.serviceWorker
     .register('notificaciones-sw.js')
@@ -15,16 +14,12 @@ $(() => {
     .catch(error => {
       console.error(`Error al registrar el service worker => ${error}`)
     })
-=======
-  // Init Firebase nuevamente
-  firebase.initializeApp(firebaseConfig);
->>>>>>> 2a7a67cbac12f147b53769b27130a5f041c32b31
 
   const messaging = firebase.messaging()
 
   // Registrar credenciales web
   messaging.usePublicVapidKey(
-    'BNXFobbKFCs-uAVxoPSqtgtm9GrVypZwx9n2PdS6GCqynO48xgPL0vUhX5hd9xgawFTRFzvfyYe0tt8f_IcL_-w'
+    'BMHOwTB0WQeNHOq1vaKDmsf8m4pfIuedGqkBYJrFKLsd3ES_Wt0qx82c1N9HlWtANA8pba3PuZcge5rz-z8iVlM'
   )
 
   // Solicitar permisos para las notificaciones
@@ -80,28 +75,12 @@ $(() => {
     )
   })
 
-<<<<<<< HEAD
   const post = new Post()
   post.consultarTodosPost()
 
   // Firebase observador del cambio de estado de auth
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-=======
-  // TODO: Listening real time
-  const post = new Post()
-  post.consultarTodosPost()
-  // TODO: Firebase observador del cambio de estado
-  // Funcion para manejar el estado
-  $('#passwordForgotten').click(() => {
-    $('.registro-formulario').css('display', 'none');
-    var elementoConID = $('#signInForm');
-    $('#registro-formulario2').append(elementoConID);
-  })
-
-  firebase.auth().onAuthStateChanged(user => {
-    if(user) {
->>>>>>> 2a7a67cbac12f147b53769b27130a5f041c32b31
       $('#btnInicioSesion').text('Salir')
       if (user.photoURL) {
         $('#avatar').attr('src', user.photoURL)
@@ -113,7 +92,6 @@ $(() => {
       $('#avatar').attr('src', 'imagenes/usuario.png')
     }
   })
-<<<<<<< HEAD
 
   // Evento boton inicio sesion
   $('#btnInicioSesion').click(() => {
@@ -130,28 +108,6 @@ $(() => {
         .catch(error => {
           Materialize.toast(`Error al realizar SignOut => ${error}`, 4000)
         })
-=======
-  //$('#btnInicioSesion').text('Salir')
-  //$('#avatar').attr('src', user.photoURL)
-  //$('#avatar').attr('src', 'imagenes/usuario_auth.png')
-  //$('#btnInicioSesion').text('Iniciar Sesión')
-  //$('#avatar').attr('src', 'imagenes/usuario.png')
-
-  // TODO: Evento boton inicio sesion, abre un modal
-  $('#btnInicioSesion').click(() => {
-    //$('#avatar').attr('src', 'imagenes/usuario.png')
-    // Materialize.toast(`Error al realizar SignOut => ${error}`, 4000)
-    const user = firebase.auth().currentUser
-
-    if (user) {
-      $('#btnInicioSesion').text('Iniciar Sesión')
-      return firebase.auth().signOut.then(() => {
-        $('#avatar').attr('src', 'imagenes/usuario.png')
-        Materialize.toast('Sign Out correcto', 4000)
-      }).catch((error) => {
-        Materialize.toast(`Error al realizar SignOut => ${error}`, 4000)
-      })
->>>>>>> 2a7a67cbac12f147b53769b27130a5f041c32b31
     }
 
     $('#emailSesion').val('')
@@ -160,7 +116,6 @@ $(() => {
   })
 
   $('#avatar').click(() => {
-<<<<<<< HEAD
     firebase
       .auth()
       .signOut()
@@ -171,18 +126,6 @@ $(() => {
       .catch(error => {
         Materialize.toast(`Error al realizar SignOut ${error}`, 4000)
       })
-=======
-    firebase.auth().signOut()
-    .then(() => {
-      $('#avatar').attr('src', 'imagenes/usuario.png')
-      Materialize.toast(`SignOut correcto`, 4000)
-      const post = new Post()
-      post.consultarTodosPost()
-    })
-    .catch(error => {
-      Materialize.toast(`Error al realizar signout`, 4000)
-    })
->>>>>>> 2a7a67cbac12f147b53769b27130a5f041c32b31
   })
 
   $('#btnTodoPost').click(() => {
@@ -192,7 +135,6 @@ $(() => {
   })
 
   $('#btnMisPost').click(() => {
-<<<<<<< HEAD
     const user = firebase.auth().currentUser
     if (user) {
       const post = new Post()
@@ -200,18 +142,6 @@ $(() => {
       $('#tituloPost').text('Mis Posts')
     } else {
       Materialize.toast(`Debes estar autenticado para ver tus posts`, 4000)
-=======
-    //$('#tituloPost').text('Mis Posts')
-    //Materialize.toast(`Debes estar autenticado para ver tus posts`, 4000) 
-    const user = firebase.auth().currentUser
-
-    if (user) {
-      const post = new Post()
-      post.consultarPostxUsuario(user)
-      $('#tituloPost').text('Mis Posts')
-    } else {
-      Materialize.toast(`Debes estar autenticado para ver tus posts`, 4000) 
->>>>>>> 2a7a67cbac12f147b53769b27130a5f041c32b31
     }
   })
 })
