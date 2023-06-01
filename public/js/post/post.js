@@ -24,15 +24,15 @@ class Post {
       .catch(error => error)
   }
 
-  consultarTodosPost () {
+  consultarTodosPost() {
     this.db
       .collection('post')
       .orderBy('fecha', 'asc')
-      .orderBy('titulo', asc)
+      .orderBy('titulo', 'asc')
       .onSnapshot(querySnapshot => {
-        $('#posts').empty()
+        $('#posts').empty();
         if (querySnapshot.empty) {
-          $('#posts').append(this.obtenerTemplatePostVacio())
+          $('#posts').append(this.obtenerTemplatePostVacio());
         } else {
           querySnapshot.forEach(post => {
             let postHtml = this.obtenerPostTemplate(
@@ -42,11 +42,11 @@ class Post {
               post.data().videoLink,
               post.data().imagenLink,
               Utilidad.obtenerFecha(post.data().fecha.toDate())
-            )
-            $('#posts').append(postHtml)
-          })
+            );
+            $('#posts').append(postHtml);
+          });
         }
-      })
+      });
   }
 
   consultarPostxUsuario (emailUser) {
