@@ -21,6 +21,11 @@ $(() => {
   $('#authFB').click(() => objAuth.authCuentaFacebook())
 
   // $("#authTwitter").click(() => objAuth.authCuentaFacebook());
+  $('#passwordRecoveryButton').click(() => {
+    const email = $('#passwordRecoveryInput').val()
+    objAuth.authForgottenPassword(email)
+    $('#modalRecoverPassword').modal('close')
+  })
 
   $('#btnRegistrarse').click(() => {
     $('#modalSesion').modal('close')
@@ -28,7 +33,11 @@ $(() => {
   })
 
   $('#btnIniciarSesion').click(() => {
-    $('#modalRegistro').modal('close')
-    $('#modalSesion').modal('open')
+    $('#btnIniciarSesion').modal('close')
+  })
+
+  $('#passwordForgotten').click(() => {
+    $('#modalSesion').modal('close')
+    $('#modalRecoverPassword').modal('open')
   })
 })

@@ -288,7 +288,7 @@ ul {
 }
 .posts .post .post-videolink {
   text-align: center;
-  background: #126798;
+  background: var(--color-blue);
   color: #fff;
   font-family: 'Allerta', sans-serif;
   padding: 0.5em;
@@ -299,7 +299,7 @@ ul {
   text-decoration: underline;
 }
 .posts .post .post-footer {
-  background: #126798;
+  background: var(--color-blue);
   color: #fff;
   font-size: 17px;
   padding-bottom: 0.5em;
@@ -311,12 +311,15 @@ ul {
 .modal-registro {
   width: 80% !important;
 }
+.modalRecoverPassword {
+  width: 80% !important;
+}
 .registro-bienvenida {
   text-align: center;
   width: 100%;
 }
 .registro-bienvenida h4 {
-  color: #126798;
+  color: var(--color-blue);
   font-size: 1.5em;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -333,13 +336,13 @@ ul {
   font-weight: bold;
 }
 .registro-formulario {
-  border-left: 0.3em solid #126798;
+  border-left: 0.3em solid var(--color-blue);
 }
 .registro-formulario div {
   margin: 0;
 }
 .registro-formulario label {
-  color: #126798;
+  color: var(--color-blue);
   font-size: 1em;
 }
 .registro-formulario a {
@@ -352,10 +355,10 @@ ul {
 }
 
 .registro-formulario .div-btnInicioSesion a {
-  background: #126798 !important;
+  background: var(--color-blue) !important;
 }
 .registro-formulario .lbl-ingresar-redes {
-  color: #126798;
+  color: var(--color-blue);
   font-weight: bold;
   padding-top: 1em;
   text-align: center;
@@ -394,32 +397,47 @@ ul {
   margin-bottom: 0em;
 }
 .div-btnRegistrarse a {
-  background: #126798 !important;
+  background: var(--color-blue) !important;
 }
 .titulo-posts {
-  color: #126798;
+  color: var(--color-blue);
   font-weight: bold;
   text-align: center;
 }
 #btnUploadFile {
-  background: #126798 !important;
+  background: var(--color-blue) !important;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   transition: 0.5s;
   margin-bottom: 1em;
   margin-top: 1em;
 }
+#passwordRecoveryButton {
+  color: white;
+}
 
 #btnInicioEmail {
   background-color: var(--color-blue);
   color: white;
 }
-.div-btnInicioSesion {
+.passwordForgottenClass {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  width: 100%;
+}
+#passwordForgotten {
+  color: var(--color-papaya);
+  display: inline-flex;
+  margin: 0;
+}
+/* .div-btnInicioSesion, .div-btnAddPost {
   background-color: var(--color-blue);
   padding: 0.5rem;
   border-radius: 0.5rem;
   transition: 0.6s;
-}
+} */
 
 .div-btnInicioSesion:hover {
   transform: scale(1.1);
@@ -493,6 +511,9 @@ ul {
     font-size: 1.5em;
   }
   .modal-registro {
+    width: 70% !important;
+  }
+  .modalRecoverPassword {
     width: 70% !important;
   }
 }
