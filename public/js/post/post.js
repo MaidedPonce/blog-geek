@@ -1,14 +1,12 @@
 class Post {
   constructor () {
-    // TODO inicializar firestore y settings
     this.db = firebase.firestore()
-    const settings = { timestampsInSnapshots: true }
-    this.db.settings(settings)
   }
+
 
   crearPost (uid, emailUser, titulo, descripcion, imagenLink, videoLink) {
     return this.db
-      .collection('post')
+      .collection('posts')
       .add({
         uid: uid,
         autor: emailUser,
@@ -16,23 +14,26 @@ class Post {
         descripcion: descripcion,
         imagenLink: imagenLink,
         videoLink: videoLink,
-        fecha: firebase.firestore.FielValue.serverTimestamp()
+        fecha: firebase.firestore.FieldValue.serverTimestamp()
       })
       .then(refDoc => {
         console.log(refDoc?.id)
+        console.log('holi 2')
       })
-      .catch(error => error)
+      .catch(error => {
+        console.log(error)
+      })
   }
 
-  consultarTodosPost() {
+  consultarTodosPost () {
     this.db
-      .collection('post')
+      .collection('posts')
       .orderBy('fecha', 'asc')
       .orderBy('titulo', 'asc')
       .onSnapshot(querySnapshot => {
-        $('#posts').empty();
+        $('#posts').empty()
         if (querySnapshot.empty) {
-          $('#posts').append(this.obtenerTemplatePostVacio());
+          $('#posts').append(this.obtenerTemplatePostVacio())
         } else {
           querySnapshot.forEach(post => {
             let postHtml = this.obtenerPostTemplate(
@@ -42,12 +43,13 @@ class Post {
               post.data().videoLink,
               post.data().imagenLink,
               Utilidad.obtenerFecha(post.data().fecha.toDate())
-            );
-            $('#posts').append(postHtml);
-          });
+            )
+            $('#posts').append(postHtml)
+          })
         }
-      });
+      })
   }
+
 
   consultarPostxUsuario (emailUser) {
     this.db

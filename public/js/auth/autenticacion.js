@@ -12,7 +12,6 @@ class Autenticacion {
         )
       }
     })
-
     $('.modal').modal('close')
   }
 
