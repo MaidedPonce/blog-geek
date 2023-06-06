@@ -2,7 +2,7 @@ $(() => {
   $('.tooltipped').tooltip({ delay: 50 })
   $('.modal').modal()
 
-  firebase.initializeApp(varConfig)
+  firebase.initializeApp(firebaseConfig)
 
   // Se registra el service worker
   navigator.serviceWorker
@@ -81,20 +81,21 @@ $(() => {
   // Firebase observador del cambio de estado de auth
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      $('#btnInicioSesion').text('Salir')
+      $('#btnInicioEmail').text('Salir')
       if (user.photoURL) {
         $('#avatar').attr('src', user.photoURL)
       } else {
         $('#avatar').attr('src', 'imagenes/usuario_auth.png')
       }
     } else {
-      $('#btnInicioSesion').text('Iniciar Sesión')
-      $('#avatar').attr('src', 'imagenes/usuario.png')
+      $('#btnInicioEmail').text('Iniciar Sesión')
+      // $('#avatar').attr('src', 'imagenes/usuario.png')
+      $('#avatar').css({ display: 'none'})
     }
   })
 
   // Evento boton inicio sesion
-  $('#btnInicioSesion').click(() => {
+  $('#btnInicioEmail').click(() => {
     const user = firebase.auth().currentUser
     if (user) {
       $('#btnInicioSesion').text('Iniciar Sesión')
