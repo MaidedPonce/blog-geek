@@ -25,6 +25,7 @@
     "run-sequence": "^1.2.2"
   },
   "dependencies": {
-    "firebase": "^9.19.1"
+    "firebase": "^9.19.1",
+    "firebase-tools": "^12.1.0"
   }
 }
