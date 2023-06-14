@@ -1,3 +1,12 @@
+:root {
+  --color-blue: #BCCEF9;
+  --color-darkViolet: #C8BCF9;
+  --color-lightViolet: #E7BCF9;
+  --color-pink: #F9BCEC;
+  --color-papaya: #F9BCCE;
+  --color-beige: #F9C9BC;
+}
+
 @font-face {
   font-family: "Flaticon";
   src: url("../fonts/Flaticon.eot");
@@ -42,13 +51,13 @@
   font-style: normal;
 }
 .btnPpal {
-  background: #7acc2d !important;
+  background: var(--color-beige) !important;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   transition: 0.5s;
 }
 .btnPpal:hover {
-  background: #7acc2d;
+  background: var(--color-beige);
   color: #fff;
   font-size: 17px;
 }
@@ -56,38 +65,36 @@ body {
   font-family: 'Allerta', sans-serif;
 }
 .headerppal {
-  background: #126798;
+  align-items: center;
+  background: var(--color-darkViolet);
+  display: flex;
   overflow: hidden;
-  box-shadow: 0 8px 10px rgba(0,0,0,0.5);
-  padding-bottom: 30px;
+  height: auto;
   text-align: center;
+  justify-content: space-between;
+  padding: 1rem;
 }
 .headerppal .titulo {
   color: #fff;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-family: 'Montserrat', sans-serif;
   margin-top: 30px;
   margin-bottom: 0;
 }
 .headerppal .titulo-a {
   color: #fff;
-  font-size: 20px;
+  font-size: 1.5rem;
   padding-top: 5px;
   padding-bottom: 15px;
 }
-.headerppal .header-logotipo {
+/* .headerppal .header-logotipo {
   margin-right: 5em;
   margin-left: 50px;
   margin-top: 20px;
-}
+} */
 .headerppal .header-logotipo img {
-  border-right-style: solid;
-  border-width: 2px;
-  border-color: #fff;
-  border-radius: 60%;
-  height: 140px;
-  padding: 20px;
-  width: 140px;
+  height: 5rem;
+  width: 6rem;
   transition: 0.6s;
 }
 .headerppal .header-logotipo img:hover {
@@ -106,13 +113,12 @@ body {
   transition: 0.6s;
   transform: translateY(100px);
 }
-.menu {
-  background: #219cca;
-  border-left: 10px solid #fff;
-  box-shadow: 0 8px 10px rgba(0,0,0,0.5);
-}
-.menu ul {
+
+ul {
   margin: 0px;
+  background-color: none;
+  border: none;
+  box-shadow: none;
 }
 .menu ul li {
   display: block;
@@ -120,7 +126,7 @@ body {
   transition: 0.6s;
 }
 .menu ul li:hover {
-  background: #126798;
+  background: #b09dff;
 }
 .menu ul li a {
   color: #fff;
@@ -133,7 +139,7 @@ body {
 }
 .footer {
   height: 100%;
-  background: #126798;
+  background: #b09dff;
   margin: 0px;
 }
 .footer .contenedor-footer {
@@ -152,7 +158,6 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
-label
 }
 .footer .contenedor-footer .formulario-contactenos .form-col1 input,
 .footer .contenedor-footer .formulario-contactenos .form-col2 input {
@@ -182,6 +187,7 @@ label
 .footer .contenedor-footer .formulario-contactenos .form-col2 textarea {
   margin-bottom: 10px;
   height: 110px;
+  background-color: white;
 }
 .footer .contenedor-footer .redesSociales .realizadopor {
   padding-top: 30px;
@@ -201,19 +207,19 @@ label
   text-decoration: none;
 }
 .footer .contenedor-footer .redesSociales .logos-redes .logo-facebook:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\f101";
   font-size: 30px;
   font-family: "Flaticon";
 }
 .footer .contenedor-footer .redesSociales .logos-redes .logo-twitter:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\f102";
   font-size: 30px;
   font-family: "Flaticon";
 }
 .footer .contenedor-footer .redesSociales .logos-redes .logo-github:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\f100";
   font-size: 30px;
   font-family: "Flaticon";
@@ -240,7 +246,7 @@ label
   text-decoration: none;
 }
 .posts .post .post-calificacion .post-estrellita-vacia:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\e9d7";
   font-family: "icono_estrellita_vacia";
 }
@@ -248,7 +254,7 @@ label
   text-decoration: none;
 }
 .posts .post .post-calificacion .post-estrellita-llena:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\e9d9";
   font-family: "icono_estrellita_llena";
 }
@@ -282,7 +288,7 @@ label
 }
 .posts .post .post-videolink {
   text-align: center;
-  background: #126798;
+  background: var(--color-blue);
   color: #fff;
   font-family: 'Allerta', sans-serif;
   padding: 0.5em;
@@ -293,7 +299,7 @@ label
   text-decoration: underline;
 }
 .posts .post .post-footer {
-  background: #126798;
+  background: var(--color-blue);
   color: #fff;
   font-size: 17px;
   padding-bottom: 0.5em;
@@ -305,12 +311,15 @@ label
 .modal-registro {
   width: 80% !important;
 }
+.modalRecoverPassword {
+  width: 80% !important;
+}
 .registro-bienvenida {
   text-align: center;
   width: 100%;
 }
 .registro-bienvenida h4 {
-  color: #126798;
+  color: var(--color-blue);
   font-size: 1.5em;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -322,18 +331,18 @@ label
   text-align: left;
 }
 .registro-bienvenida span {
-  color: #7acc2d;
+  color: var(--color-beige);
   font-size: 1.2em;
   font-weight: bold;
 }
 .registro-formulario {
-  border-left: 0.3em solid #126798;
+  border-left: 0.3em solid var(--color-blue);
 }
 .registro-formulario div {
   margin: 0;
 }
 .registro-formulario label {
-  color: #126798;
+  color: var(--color-blue);
   font-size: 1em;
 }
 .registro-formulario a {
@@ -344,11 +353,12 @@ label
 .registro-formulario .div-btnInicioSesion {
   text-align: center;
 }
+
 .registro-formulario .div-btnInicioSesion a {
-  background: #126798 !important;
+  background: var(--color-blue) !important;
 }
 .registro-formulario .lbl-ingresar-redes {
-  color: #126798;
+  color: var(--color-blue);
   font-weight: bold;
   padding-top: 1em;
   text-align: center;
@@ -358,7 +368,7 @@ label
   text-align: center;
 }
 .registro-formulario .registro-iconos-redes .logo-facebook:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\f101";
   font-size: 40px;
   font-family: "Flaticon";
@@ -367,7 +377,7 @@ label
   margin-left: 1em;
 }
 .registro-formulario .registro-iconos-redes .logo-google:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\f2b3";
   font-size: 45px;
   font-family: "googleicon";
@@ -376,7 +386,7 @@ label
   margin-left: 1em;
 }
 .registro-formulario .registro-iconos-redes .logo-twitter:before {
-  color: #7acc2d;
+  color: var(--color-beige);
   content: "\f102";
   font-size: 40px;
   font-family: "Flaticon";
@@ -387,27 +397,67 @@ label
   margin-bottom: 0em;
 }
 .div-btnRegistrarse a {
-  background: #126798 !important;
+  background: var(--color-blue) !important;
 }
 .titulo-posts {
-  color: #126798;
+  color: var(--color-blue);
   font-weight: bold;
   text-align: center;
 }
 #btnUploadFile {
-  background: #126798 !important;
+  background: var(--color-blue) !important;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   transition: 0.5s;
   margin-bottom: 1em;
   margin-top: 1em;
 }
+#passwordRecoveryButton {
+  color: white;
+}
+
+#btnInicioEmail {
+  background-color: var(--color-blue);
+  color: white;
+}
+.passwordForgottenClass {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  width: 100%;
+}
+#passwordForgotten {
+  color: var(--color-papaya);
+  display: inline-flex;
+  margin: 0;
+}
+/* .div-btnInicioSesion, .div-btnAddPost {
+  background-color: var(--color-blue);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: 0.6s;
+} */
+#btnInicioEmail {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.div-btnInicioSesion:hover {
+  transform: scale(1.1);
+}
+
+.section {
+  padding: 1rem;
+}
+
 @media screen and (min-width: 768px) {
   .headerppal {
     text-align: left;
   }
   .headerppal .header-logotipo {
     float: left;
+    margin: 0;
   }
   .headerppal .header-avatar {
     display: inline-block;
@@ -465,6 +515,9 @@ label
     font-size: 1.5em;
   }
   .modal-registro {
+    width: 70% !important;
+  }
+  .modalRecoverPassword {
     width: 70% !important;
   }
 }

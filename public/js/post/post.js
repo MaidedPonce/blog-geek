@@ -1,14 +1,12 @@
 class Post {
   constructor () {
-    // TODO inicializar firestore y settings
     this.db = firebase.firestore()
-    const settings = { timestampsInSnapshots: true }
-    this.db.settings(settings)
   }
+
 
   crearPost (uid, emailUser, titulo, descripcion, imagenLink, videoLink) {
     return this.db
-      .collection('post')
+      .collection('posts')
       .add({
         uid: uid,
         autor: emailUser,
@@ -16,19 +14,22 @@ class Post {
         descripcion: descripcion,
         imagenLink: imagenLink,
         videoLink: videoLink,
-        fecha: firebase.firestore.FielValue.serverTimestamp()
+        fecha: firebase.firestore.FieldValue.serverTimestamp()
       })
       .then(refDoc => {
         console.log(refDoc?.id)
+        console.log('holi 2')
       })
-      .catch(error => error)
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   consultarTodosPost () {
     this.db
-      .collection('post')
+      .collection('posts')
       .orderBy('fecha', 'asc')
-      .orderBy('titulo', asc)
+      .orderBy('titulo', 'asc')
       .onSnapshot(querySnapshot => {
         $('#posts').empty()
         if (querySnapshot.empty) {
@@ -48,6 +49,7 @@ class Post {
         }
       })
   }
+
 
   consultarPostxUsuario (emailUser) {
     this.db
